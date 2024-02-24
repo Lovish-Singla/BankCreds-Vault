@@ -1,0 +1,35 @@
+{
+    "name": "bank_credentials",
+    "short_name": "bank_credentials",
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#e1e1e1",
+    "theme_color": "#e1e1e1",
+    "description": "An Application to securely store Bank Credentials of various business organisation that has dealings with certain organisation.",
+    "orientation": "portrait-primary",
+    "prefer_related_applications": false,
+    "icons": [
+        {
+            "src": "icons/Icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/Icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/Icon-maskable-192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "maskable"
+        },
+        {
+            "src": "icons/Icon-maskable-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
+        }
+    ]
+}
