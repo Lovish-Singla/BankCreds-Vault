@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import '../models/organisation.dart';
 import '../utils/database_helper.dart';
 
@@ -80,6 +81,11 @@ class _OrganizationFormState extends State<OrganizationForm> {
                     ),
                   ),
                   // Add validation if needed
+                  inputFormatters: [
+                    LengthLimitingTextInputFormatter(11), // Limit to 11 characters
+                    FilteringTextInputFormatter.allow(RegExp('[A-Za-z0-9]')), // Allow only alphabets and digits
+                    UppercaseTextInputFormatter(), // Automatically convert to uppercase
+                  ],
                 ),
                 const SizedBox(height: 16),
                 TextFormField(
@@ -103,7 +109,7 @@ class _OrganizationFormState extends State<OrganizationForm> {
                   ),
                   // Add validation if needed
                 ),
-                const SizedBox(height: 16),
+                const SizedBox(height: 25),
                 ElevatedButton(
                   onPressed: () async {
                     // Create or update organization based on whether it's a new or existing organization
@@ -129,8 +135,10 @@ class _OrganizationFormState extends State<OrganizationForm> {
 
                     Navigator.pop(context); // Go back to the previous screen after saving
                   },
-                  child: const Text('Save'),
+                  style: ElevatedButton.styleFrom(backgroundColor: Colors.blue),
+                  child: const Text('Save', style: TextStyle(color: Colors.white),),
                 ),
+                const SizedBox(height: 25),
                 if (widget.organization != null)
                   ElevatedButton(
                     onPressed: () async {
@@ -155,7 +163,6 @@ class _OrganizationFormState extends State<OrganizationForm> {
     );
   }
 }
-
 
 Future<bool> _showDeleteConfirmationDialog(BuildContext context) async {
   bool? result = await showDialog<bool>(
@@ -188,7 +195,15 @@ Future<bool> _showDeleteConfirmationDialog(BuildContext context) async {
   return result ?? false; // Return false if result is null
 }
 
-
+class UppercaseTextInputFormatter extends TextInputFormatter {
+  @override
+  TextEditingValue formatEditUpdate(TextEditingValue oldValue, TextEditingValue newValue) {
+    return TextEditingValue(
+      text: newValue.text.toUpperCase(),
+      selection: newValue.selection,
+    );
+  }
+}
 
 
 

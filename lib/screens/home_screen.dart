@@ -4,6 +4,8 @@ import 'package:bank_credentials/screens/organisation_form.dart';
 import 'package:bank_credentials/utils/database_helper.dart';
 
 class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
+
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }

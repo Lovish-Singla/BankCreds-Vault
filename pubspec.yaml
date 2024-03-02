@@ -45,6 +45,9 @@ dependencies:
   intl: ^0.19.0 # Provides internationalization and localization facilities, including message
   # translation, plurals and genders, date/number formatting and parsing, and bidirectional text.
 
+  # Package for Local Authentication
+  local_auth: ^2.2.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

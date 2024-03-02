@@ -38,6 +38,16 @@ class DBHelper {
 
   void _createdb(Database db, int newVersion) async {
     await db.execute("CREATE TABLE $noteTable ($colOrg TEXT PRIMARY KEY, $colAcc TEXT, $colIfsc TEXT, $colCity TEXT, $colState TEXT, $colPhone TEXT NULL, `$colDesc` TEXT NULL)");
+    // Insert a dummy organization entry
+    await db.insert(noteTable, {
+      colOrg: 'ZZ Dummy Organization',
+      colAcc: '1234567890',
+      colIfsc: 'INDIA000000',
+      colCity: 'Earth',
+      colState: 'Milky Way Galaxy',
+      colPhone: '9876543210',
+      colDesc: 'This is a dummy organization for testing purposes.'
+    });
   }
 
   // CRUD operations
